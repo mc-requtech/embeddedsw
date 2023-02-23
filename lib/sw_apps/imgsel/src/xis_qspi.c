@@ -1302,7 +1302,7 @@ int XIs_QspiWrite(u32 Address, u8 *WriteDataBuffer, u32 ByteCount)
 	}
 
 	for(PageIndex = 0; PageIndex < PageCount; PageIndex++) {
-		Status = XIs_QspiWriteData(Address,
+		Status = XIs_QspiWriteData(Address + (PageIndex * PageSize),
 						(u8 *)(WriteDataBuffer + (PageIndex * PageSize)),
 										PageSize);
 		if (Status != XST_SUCCESS) {
